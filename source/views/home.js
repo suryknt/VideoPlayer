@@ -4,57 +4,28 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as homeActions from '../actions/home';
 import Video from '../components/video';
+import {playlist} from '../constants/playlist';
 
-
-var videos = [
-  {
-    service: 'youtube',
-    video: 'https://www.youtube.com/watch?v=0k_1kvDh2UA'
-  },
-  {
-    service: 'vimeo',
-    video: 'https://vimeo.com/7232823'
-  },
-  {
-    service: 'soundcloud',
-    video: 'https://soundcloud.com/tracks/34019569'
-  },
-  {
-    service: 'youtube',
-    video: 'https://www.youtube.com/watch?v=G-Bn_kD6QN4'
-  },
-  {
-    service: 'vimeo',
-    video: 'https://vimeo.com/25938814'
-  },
-  {
-    service: 'soundcloud',
-    video: 'https://soundcloud.com/tracks/181263276'
-  }
-];
 
  class Home extends Component{
     constructor(props) {
         super(props);
     }
 
-   
-
     goToVideo= (index)=> {
         let videoIndex = index;
         if (videoIndex < 0) {
-        videoIndex = videos.length - 1;
-        } else if (videoIndex >= videos.length) {
+        videoIndex = playlist.length - 1;
+        } else if (videoIndex >= playlist.length) {
         videoIndex = 0;
     }
-    console.log('goToVideo called::',index)
         this.props.actions.setVideoIndex(videoIndex);
     }
     render=()=>{
         let {home}=this.props;
         let {videoIndex}=home;
 
-        const {service, video} = videos[videoIndex];
+        const {service, video} = playlist[videoIndex];
 
         return <div>
                 <h3 className="title" >Awesome video Player!</h3>
