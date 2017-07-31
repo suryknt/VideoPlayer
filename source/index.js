@@ -33,7 +33,7 @@ let history = syncHistoryWithStore(hashHistory, store);
 
 const NoMatch = () => (<div className="text-center">
   <h3 className="text-danger">404: Page not found!</h3>
-  <Link to="/youtube">Back To Home</Link>
+  <Link className="not-found" to="/youtube">Back To Home</Link>
 </div>);
 
 render(

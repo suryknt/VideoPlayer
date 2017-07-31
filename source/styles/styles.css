@@ -46,3 +46,10 @@ body {
 .video-des{
     color: #ccffff;
 }
+
+.not-found{
+    color: #ccffe6
+}
+.text-danger{
+    color:  #ff3333
+}
